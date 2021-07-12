@@ -1,0 +1,36 @@
+<style>
+  table {
+      width: 50%;
+      border: 1px solid #444444;
+      border-collapse: collapse;
+  }
+  th, td {
+      border: 1px solid #444444;
+  }
+</style>
+<h1>Schools List</h1>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  <% @schools.each do |school| %>
+    <tr>
+      <td style="text-align: center;">
+        <%= school.id %>
+      </td>
+      <td>
+        <a href="/schools/<%= school.id %>">
+          <%= school.name %>
+        </a>
+      </td>
+      <td>
+        <%= link_to "Show", school_path(school) %>
+        <a href="/schools/<%= school.id %>/edit">Edit</a>
+        <%= link_to "Delete", school_path(school), method: :delete %>
+      </td>
+    </tr>
+<% end %>
+</table>
+<a href="/schools/new">Add School</a>
