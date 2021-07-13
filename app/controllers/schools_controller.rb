@@ -12,8 +12,8 @@ class SchoolsController < ApplicationController
   end
   def show
     @school = School.find_by_id(params[:id])
-    @teachers = School.find_by_id(params[:id]).teachers
-    @students = School.find(params[:id]).students
+    # @teachers = @school.teachers
+    # @students = @school.students
   end
   def edit
     @school = School.find_by_id(params[:id])

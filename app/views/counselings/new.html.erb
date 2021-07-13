@@ -1,0 +1,19 @@
+<h2>Add Counseling</h2>
+<%= form_for([@school, @counseling], url: school_counselings_path) do |form| %>
+  <p>
+    <%= form.label :teacher_id %>
+    <%= form.collection_select :teacher_id, Teacher.all, :id, :name, prompt: true  %>
+  </p>
+  <p>
+    <%= form.label :student_id %>
+    <%= form.collection_select :student_id, Student.all, :id, :name, prompt: true  %>
+  </p>
+  <p>
+    <%= form.label :appointment_date %>
+    <%= form.date_select :appointment_date %>
+  </p>
+
+
+  <%= form.submit %>
+<% end %>
+<%= link_to "Back to home", root_path %>

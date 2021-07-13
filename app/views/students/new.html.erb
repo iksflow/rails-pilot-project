@@ -1,0 +1,8 @@
+<h2>Add Student</h2>
+<%= form_for([@school, @student], url: school_students_path) do |form| %>
+  <%#= form.collection_select :school_id, School.all, :id, :name, prompt: true  %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.submit %>
+<% end %>
+<%= link_to "Back to home", root_path %>

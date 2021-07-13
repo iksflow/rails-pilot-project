@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210713133130) do
+ActiveRecord::Schema.define(version: 20210713151624) do
+
+  create_table "counselings", force: true do |t|
+    t.integer  "school_id"
+    t.integer  "teacher_id"
+    t.integer  "student_id"
+    t.date     "appointment_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "schools", force: true do |t|
     t.string   "name"

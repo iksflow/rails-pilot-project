@@ -7,7 +7,7 @@ class TeachersController < ApplicationController
   def create
     @school = School.find_by_id(params[:school_id])
     @teacher = @school.teachers.create(teacher_params)
-    redirect_to schools_path
+    redirect_to school_path(@school)
   end
 
   def edit
@@ -23,6 +23,13 @@ class TeachersController < ApplicationController
     else
       render edit_school_teacher_path(@teacher)
     end
+  end
+
+  def destroy
+    @school = School.find(params[:school_id])
+    @teacher = @school.teachers.find(params[:id])
+    @teacher.destroy
+    redirect_to school_path(@school)
   end
 
   private
