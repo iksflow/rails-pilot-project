@@ -1,6 +1,6 @@
 <h2>School Register Page</h2>
 
-<%= form_for :school, url: schools_create_path do |form| %>
+<%= form_for :school, url: schools_path do |form| %>
   <%= form.label :name %><br>
   <%= form.text_field :name %>
 <!--  <%#= form.label :city %><br>-->
@@ -9,4 +9,4 @@
     <%= form.submit %>
   </p>
 <% end %>
-<%= link_to "Back to home", schools_index_path %>
+<%= link_to "Back to home", schools_path %>

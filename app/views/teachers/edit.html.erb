@@ -1,0 +1,12 @@
+<h2>Edit Teacher Info</h2>
+
+<%= form_for :teacher, url: { action: "update"}, method: :patch do |form| %>
+  <%= form.label :name %>:
+  <%= form.text_field :name %><br>
+  <%= form.label :subject %>:
+  <%= form.text_field :subject %><br>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to "Back to home", schools_path %>

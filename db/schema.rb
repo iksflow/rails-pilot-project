@@ -11,12 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210708054921) do
+ActiveRecord::Schema.define(version: 20210713133130) do
 
   create_table "schools", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "students", force: true do |t|
+    t.string   "name"
+    t.integer  "school_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "students", ["school_id"], name: "index_students_on_school_id", using: :btree
+
+  create_table "teachers", force: true do |t|
+    t.string   "name"
+    t.string   "subject"
+    t.datetime "join_date"
+    t.integer  "school_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teachers", ["school_id"], name: "index_teachers_on_school_id", using: :btree
 
 end

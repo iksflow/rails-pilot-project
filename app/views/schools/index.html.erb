@@ -28,7 +28,7 @@
       <td>
         <%= link_to "Show", school_path(school) %>
         <a href="/schools/<%= school.id %>/edit">Edit</a>
-        <%= link_to "Delete", school_path(school), method: :delete %>
+        <%= link_to "Delete", school_path(school), method: :delete, data: { confirm: "Are you sure? "} %>
       </td>
     </tr>
 <% end %>

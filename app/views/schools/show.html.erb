@@ -1,3 +1,41 @@
+<style>
+    table {
+        width: 50%;
+        border: 1px solid #444444;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #444444;
+    }
+</style>
 <h2>School Info</h2>
-<h3><%= @school.name %></h3>
-<%#= link_to "Back to home", schools_index_path %>
+<h3>School Name : <%= @school.name %></h3>
+<h3>Teacher List</h3>
+<table>
+  <tr>
+    <th>Teacher Id</th>
+    <th>Name</th>
+    <th>Subject</th>
+    <th>Action</th>
+  </tr>
+  <% @teachers.each do |teacher| %>
+    <tr>
+      <td style="text-align: center;">
+        <%= teacher.id %>
+      </td>
+      <td>
+        <%= teacher.name %>
+      </td>
+      <td>
+        <%= teacher.subject %>
+      </td>
+      <td>
+        <%#= link_to "Show" %>
+        <%= link_to "Edit", edit_school_teacher_path(@school.id, teacher) %>
+        <%#= link_to "Delete", school_path(school), method: :delete, data: { confirm: "Are you sure? "} %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "Add Teacher", new_school_teacher_path(@school) %> |
+<%= link_to "Back to home", schools_path %>

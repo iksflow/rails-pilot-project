@@ -5,13 +5,15 @@ class SchoolsController < ApplicationController
   def create
     @school = School.new(school_params)
     @school.save
-    redirect_to schools_index_path
+    redirect_to schools_path
   end
   def index
     @schools = School.all
   end
   def show
     @school = School.find_by_id(params[:id])
+    @teachers = School.find_by_id(params[:id]).teachers
+    @students = School.find(params[:id]).students
   end
   def edit
     @school = School.find_by_id(params[:id])
