@@ -1,0 +1,12 @@
+<tr>
+  <td style="text-align: center;">
+    <%= student.id %>
+  </td>
+  <td>
+    <%= student.name %>
+  </td>
+  <td>
+    <%= link_to "Edit", edit_school_student_path(@school.id, student) %>
+    <%= link_to "Delete", school_student_path(@school.id, student), method: :delete, data: { confirm: "Are you sure? "} %>
+  </td>
+</tr>

@@ -1,0 +1,9 @@
+<%= form_for :school, url: schools_path do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %>
+  <!--  <%#= form.label :city %><br>-->
+  <%#= form.text_field :city %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

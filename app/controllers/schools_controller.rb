@@ -11,15 +11,18 @@ class SchoolsController < ApplicationController
     @schools = School.all
   end
   def show
-    @school = School.find_by_id(params[:id])
+    # find(id) = find_by_id(id)
+    # @school = School.find_by_id(params[:id])
+    @school = School.find(params[:id])
+
     # @teachers = @school.teachers
     # @students = @school.students
   end
   def edit
-    @school = School.find_by_id(params[:id])
+    @school = School.find(params[:id])
   end
   def update
-    @school = School.find_by_id(params[:id])
+    @school = School.find(params[:id])
     if @school.update(school_params)
       redirect_to "/schools"
     else
@@ -29,7 +32,7 @@ class SchoolsController < ApplicationController
   end
 
   def destroy
-    @school = School.find_by_id(params[:id])
+    @school = School.find(params[:id])
     @school.destroy
     redirect_to "/schools"
     # redirect_to schools_path

@@ -27,10 +27,12 @@
       </td>
       <td>
         <%= link_to "Show", school_path(school) %>
-        <a href="/schools/<%= school.id %>/edit">Edit</a>
+<!--        <a href="/schools/<%#= school.id %>/edit">Edit</a>-->
+        <%= link_to "Edit", edit_school_path(school)%>
         <%= link_to "Delete", school_path(school), method: :delete, data: { confirm: "Are you sure? "} %>
       </td>
     </tr>
 <% end %>
 </table>
-<a href="/schools/new">Add School</a>
+<!--<a href="/schools/new">Add School</a>-->
+<%= link_to "Add School", new_school_path %>
