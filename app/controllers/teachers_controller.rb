@@ -6,7 +6,7 @@ class TeachersController < ApplicationController
 
   def create
     @school = School.find_by_id(params[:school_id])
-    @teacher = @school.teachers.create(teacher_params)
+    @school.teachers.create(teacher_params)
     redirect_to school_path(@school)
   end
 
