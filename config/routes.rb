@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  get 'students/index'
-
-  root "schools#index"
+  devise_for :users, controllers: { registrations: "users/registrations" }
+  root "homes#index"
+  resources :homes
   resources :schools do
     resources :teachers
     resources :students
     resources :counselings
   end
+
+
 end
