@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   def new
     @school = School.new
   end
@@ -42,6 +42,6 @@ class SchoolsController < ApplicationController
 
   private
   def school_params
-    params.require(:school).permit(:name)
+    params.require(:school).permit(:name, :logo)
   end
 end

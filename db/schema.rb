@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210913040316) do
+ActiveRecord::Schema.define(version: 20220116131438) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", force: true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
 
   create_table "counselings", force: true do |t|
     t.integer  "school_id"
@@ -35,10 +45,18 @@ ActiveRecord::Schema.define(version: 20210913040316) do
     t.datetime "updated_at"
   end
 
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "schools", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo"
   end
 
   create_table "students", force: true do |t|
@@ -74,6 +92,7 @@ ActiveRecord::Schema.define(version: 20210913040316) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

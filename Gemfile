@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'devise', '3.2.4'
 # Sidekiq
 gem 'sidekiq'
+# CarrierWave
+gem 'carrierwave', '~> 1.x'
