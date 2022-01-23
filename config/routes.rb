@@ -7,8 +7,13 @@ Rails.application.routes.draw do
     resources :students
     resources :counselings
   end
-  resources :posts do
-    resources :comments
-  end
+  # resources :posts do
+  #   resources :comments
+  # end
+  get "/posts/index", to: "posts#index"
+  get "/posts/index_joins", to: "posts#index_joins"
+  get "/posts/index_includes", to: "posts#index_includes"
+  get "/posts/index_preload", to: "posts#index_preload"
+  get "/posts/index_eager_load", to: "posts#index_eager_load"
 
 end
